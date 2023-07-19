@@ -1,10 +1,14 @@
-import Sample from './components/sample';
+import CharacterList from './components/CharacterList';
+import { CharacterComponetLabels } from './domain/enums/character.enum';
+import { CharacterListTitle, CharacterListitle } from './components/CharacterList/CharacterList.style';
 
-/**
- * This is the entry point of the App, feel free to
- * modify this file as you want!
- *
- */
-const App = () => <Sample />;
+function App() {
+  return (
+    <CharacterListTitle>
+      <CharacterListitle>{CharacterComponetLabels.titleLabel}</CharacterListitle>
+      <CharacterList />
+    </CharacterListTitle>
+  );
+}
 
 export default App;
