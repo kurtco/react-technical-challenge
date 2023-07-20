@@ -13,7 +13,6 @@ export const getAllCharactersByPage = async (pageNumber: number, search: string,
         results {
           id
           name
-          status
           species
           image
         }
@@ -39,14 +38,14 @@ export const getAllCharactersByPage = async (pageNumber: number, search: string,
       };
     }
 
-    if(SearchCardLabels.ORDERBYSPECIEVALUE.toLowerCase() === orderBy?.toLowerCase()){
+    if (SearchCardLabels.ORDERBYSPECIEVALUE.toLowerCase() === orderBy?.toLowerCase()) {
       const sortedResults = data.characters.results.sort((a: CharacterData, b: CharacterData) => {
         return String(a.species).localeCompare(b.species);
       });
       return sortedResults;
     }
 
-    if(SearchCardLabels.ORDERTITLEVALUE.toLowerCase () === orderBy?.toLowerCase()){
+    if (SearchCardLabels.ORDERTITLEVALUE.toLowerCase() === orderBy?.toLowerCase()) {
       const sortedResults = data.characters.results.sort((a: CharacterData, b: CharacterData) => {
         return String(a.name).localeCompare(b.name);
       });
@@ -55,7 +54,63 @@ export const getAllCharactersByPage = async (pageNumber: number, search: string,
 
 
     return data.characters.results;
-    
+
+  } catch (error) {
+    return {
+      status: HttpStatus.NOT_FOUND,
+    };
+  }
+
+};
+
+
+export const getAllCharacterById = async (id: string): Promise<HttpResponse<CharacterData | {}>> => {
+
+  if (!id || id === '') {
+    return {
+      status: HttpStatus.NOT_FOUND,
+    };
+  }
+
+  const query = `
+    query CharacterById($id: ID!) {
+      character(id: $id) {
+        id
+        name
+        species
+        image
+        type
+        gender
+      }
+    }
+  `;
+
+  try {
+
+    const response = await fetch(API_URL, {
+      method: HttpMethods.POST,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query,
+        variables: { id },
+      }),
+    });
+
+    const { data, errors } = await response.json();
+
+    if (errors) {
+      return {
+        status: HttpStatus.NOT_FOUND,
+      };
+    }
+
+    const spreadData = {
+      ...data.character as CharacterData,
+      status: HttpStatus.SUCCESS
+    };
+
+    return spreadData
+
   } catch (error) {
     return {
       status: HttpStatus.NOT_FOUND,

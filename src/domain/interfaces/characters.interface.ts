@@ -14,6 +14,8 @@ export interface CharacterData {
     id: number
     name: string
     species: string
-    type: string
+    type?: string
     image: string
+    status?: string
+    gender?: string
 }

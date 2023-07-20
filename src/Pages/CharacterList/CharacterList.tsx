@@ -10,6 +10,7 @@ import { HttpStatus } from '../../domain/enums/httpRequest.enum';
 import { ReactElement, useEffect, useState } from 'react';
 import NotFound from '../../components/NotFound/NotFound';
 import { CharacterComponetLabels } from '../../domain/enums/character.enum';
+import { Link } from 'react-router-dom';
 
 
 export function CharacterList(): ReactElement {
@@ -61,20 +62,22 @@ export function CharacterList(): ReactElement {
           <>
             {characters.map((data: any) => (
               <div key={data.id}>
-                <Character
-                  id={data.id}
-                  name={data.name}
-                  species={data.species}
-                  image={data.image}
-                />
+                <Link to={`/detail/${data.id}`}>
+                  <Character
+                    id={data.id}
+                    name={data.name}
+                    species={data.species}
+                    image={data.image}
+                  />
+                </Link>
               </div>
             ))}
           </>
         )}
-        </CharacterListContainer>
-        {!loading && !error && characters?.length > 0 &&
-          <Pagination page={paginationPage} setPage={setPaginationPage} />
-        }
+      </CharacterListContainer>
+      {!loading && !error && characters?.length > 0 &&
+        <Pagination page={paginationPage} setPage={setPaginationPage} />
+      }
     </>
   );
 }
