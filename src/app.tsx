@@ -5,7 +5,7 @@ import { CharacterListTitle, CharacterListitle } from './components/CharacterLis
 function App() {
   return (
     <CharacterListTitle>
-      <CharacterListitle>{CharacterComponetLabels.titleLabel}</CharacterListitle>
+      <CharacterListitle>{CharacterComponetLabels.TITLE}</CharacterListitle>
       <CharacterList />
     </CharacterListTitle>
   );

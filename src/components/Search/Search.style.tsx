@@ -28,3 +28,32 @@ export const SearchPrimarybtn = styled.header`
 	border-radius: 0.25rem;
 	cursor: pointer;	  
 `;
+
+export const SearchInput = styled.input`
+	flex: 1;
+	border: none;
+	background: transparent;
+	padding: 4px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;  
+`;
+
+export const  SearchButton  = styled.button `
+	border: none;
+	background-color: transparent;
+	color: #888;
+	font-size: 20px;
+	cursor: pointer;
+	margin-right: 8px;
+	width: 100%
+`;
+
+export const FilterSelect = styled.select `
+	display: flex;
+	flex: 1;
+	margin-left: 8px;
+	border: none;
+	background-color: transparent;
+	color: #555;
+	font-size: 14px;
+	appearance: none;
+`;

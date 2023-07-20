@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const PaginationContainer = styled.header`
 	display: flex;
-	justify-content: space-around;
+	max-width: 500px;
+	justify-content: space-between;
+	margin: 0 auto;
     align-items: center;
 `;
 

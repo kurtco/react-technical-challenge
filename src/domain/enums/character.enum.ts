@@ -1,9 +1,7 @@
 export enum CharacterComponetLabels {
-    titleLabel = 'Rick And Morty using Graphql',
-    specieLabel =  'Specie',
-    nameLabel = 'Title:'
+    TITLE = 'Rick And Morty using Graphql',
 }  
 export enum CharacterListComponetLabels {
-    loading = 'Loading...l',
+    LOADING = 'Loading...l',
 }  
 

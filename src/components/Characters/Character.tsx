@@ -1,6 +1,5 @@
 import { ReactElement } from 'react';
-import {  MediaCard, MediaCardContent, MediaCardDescription, MediaCardThumbnail, MediaCardTitle, ThumbailImage } from './Character.style';
-import { CharacterComponetLabels } from '../../domain/enums/character.enum';
+import { MediaCard, MediaCardContent, MediaCardDescription, MediaCardThumbnail, MediaCardTitle, ThumbailImage } from './Character.style';
 
 interface CharacterProps {
   id: number
@@ -11,17 +10,17 @@ interface CharacterProps {
 export function Character({ id, name, image, species }: CharacterProps): ReactElement {
   return (
     <MediaCard key={id}>
-        <MediaCardThumbnail>
-          <ThumbailImage
-            src={image} alt={name} 
-          />
-        </MediaCardThumbnail>
-        <MediaCardContent>
-          <MediaCardTitle> {`${CharacterComponetLabels.nameLabel} ${name}`}</MediaCardTitle>
-          <MediaCardDescription>
-            {species}
-          </MediaCardDescription>
-        </MediaCardContent>
+      <MediaCardThumbnail>
+        <ThumbailImage
+          src={image} alt={name}
+        />
+      </MediaCardThumbnail>
+      <MediaCardContent>
+        <MediaCardTitle> {name}</MediaCardTitle>
+        <MediaCardDescription>
+          {species}
+        </MediaCardDescription>
+      </MediaCardContent>
     </MediaCard>
 
   );
