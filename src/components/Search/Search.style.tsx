@@ -17,6 +17,8 @@ export const SearchBarContainer = styled.div `
 	background-color: #fff;
 	border-radius: 8px;
 	padding: 4px;
+	max-width: 500px;
+	width: 450px;
 `
 
 export const SearchPrimarybtn = styled.header`
@@ -44,7 +46,6 @@ export const  SearchButton  = styled.button `
 	font-size: 20px;
 	cursor: pointer;
 	margin-right: 8px;
-	width: 100%
 `;
 
 export const FilterSelect = styled.select `
@@ -55,5 +56,8 @@ export const FilterSelect = styled.select `
 	background-color: transparent;
 	color: #555;
 	font-size: 14px;
-	appearance: none;
+	border-radius: 8px;
+	padding: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	text-align: center;
 `;

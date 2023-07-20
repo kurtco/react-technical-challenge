@@ -1,14 +1,15 @@
-import Character from '../Characters';
-import Exception from '../Exception';
-import Loader from '../Loader';
-import Pagination from '../Pagination';
-import Search from '../Search';
+import Character from '../../components/Characters';
+import Exception from '../../components/Exception';
+import Loader from '../../components/Loader';
+import Pagination from '../../components/Pagination';
+import Search from '../../components/Search';
 import { BackGroundColor, ExceptionCardLabels } from '../../domain/enums/exception.enum';
-import { CharacterListContainer, CharacterListTitle } from './CharacterList.style';
+import { CharacterListTitle, CharacterListContainer } from './CharacterList.style';
 import { getAllCharactersByPage } from '../../services/getcharacters.sevice';
 import { HttpStatus } from '../../domain/enums/httpRequest.enum';
 import { ReactElement, useEffect, useState } from 'react';
-import NotFound from '../NotFound/NotFound';
+import NotFound from '../../components/NotFound/NotFound';
+import { CharacterComponetLabels } from '../../domain/enums/character.enum';
 
 
 export function CharacterList(): ReactElement {
@@ -38,7 +39,8 @@ export function CharacterList(): ReactElement {
 
   if (loading) return (
     <CharacterListContainer>
-      <Loader />    </CharacterListContainer>
+      <Loader />
+    </CharacterListContainer>
   )
 
   if (error) return (
@@ -47,13 +49,12 @@ export function CharacterList(): ReactElement {
     </CharacterListContainer>
   )
 
-
-
   return (
     <>
-      <CharacterListTitle />
-      <Search searchHandle={setSearch} orderByHandle= {setOrderBy} />
       <CharacterListContainer>
+        <CharacterListTitle>{CharacterComponetLabels.TITLE}</CharacterListTitle>
+        <Search searchHandle={setSearch} orderByHandle={setOrderBy} />
+
         {characters?.length === 0 ? (
           <NotFound />
         ) : (
@@ -70,11 +71,10 @@ export function CharacterList(): ReactElement {
             ))}
           </>
         )}
-      </CharacterListContainer>
-      {!loading && !error &&  characters?.length > 0 &&
-        <Pagination page={paginationPage} setPage={setPaginationPage} />
-      }
-
+        </CharacterListContainer>
+        {!loading && !error && characters?.length > 0 &&
+          <Pagination page={paginationPage} setPage={setPaginationPage} />
+        }
     </>
   );
 }

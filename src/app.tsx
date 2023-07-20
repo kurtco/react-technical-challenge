@@ -1,13 +1,16 @@
-import CharacterList from './components/CharacterList';
-import { CharacterComponetLabels } from './domain/enums/character.enum';
-import { CharacterListTitle, CharacterListitle } from './components/CharacterList/CharacterList.style';
+import CharacterList from './Pages/CharacterList';
+import CharacterDetail from './Pages/CharacterDetail';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 function App() {
   return (
-    <CharacterListTitle>
-      <CharacterListitle>{CharacterComponetLabels.TITLE}</CharacterListitle>
-      <CharacterList />
-    </CharacterListTitle>
+    <Router>
+      <Routes>
+        <Route path="/" element={<CharacterList />} />
+        <Route path="/detail/:id" element={<CharacterDetail />} />
+      </Routes>
+    </Router>
   );
 }
 
