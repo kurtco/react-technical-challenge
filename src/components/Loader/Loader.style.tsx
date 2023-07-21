@@ -7,7 +7,7 @@ export const LoadingMessageContainer = styled.div`
   flex-direction: column;
   padding: 16px;
   marging: 24px;
-  background-color: #f2f2f2; /* Color de fondo similar al de iOS */
+  background-color: #f2f2f2; 
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
