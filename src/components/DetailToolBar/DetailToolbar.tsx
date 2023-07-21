@@ -1,6 +1,6 @@
 import React from 'react'
 import { DetailToolbarContainer, Title, BackButton } from './DetailToolbar.style';
-import { DetailToolbarLabel } from '../domain/enums/character.enum';
+import { DetailToolbarLabel } from '../../domain/enums/character.enum';
 import { Link } from 'react-router-dom'; // Importa el componente Link
 
 

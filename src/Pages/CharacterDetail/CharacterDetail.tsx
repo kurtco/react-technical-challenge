@@ -1,4 +1,4 @@
-import DetailToolbar from '../../DetailToolBar';
+import DetailToolbar from '../../components/DetailToolBar';
 import Exception from '../../components/Exception';
 import Loader from '../../components/Loader';
 import React, { ReactElement, useEffect, useState } from 'react';
