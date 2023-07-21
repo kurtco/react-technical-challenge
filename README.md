@@ -5,6 +5,8 @@ Project created to use the public API of "Rick and Morty" using the Graphql vers
 The documentation followed is in the following link:
 https://rickandmortyapi.com/documentation/#graphql
 
+Project hosted in production here: https://github.com/kurtco/react-technical-challenge 
+
 ### My decisions:
 
 **I used Graphql**
