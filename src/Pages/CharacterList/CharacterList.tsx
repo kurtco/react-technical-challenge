@@ -1,19 +1,18 @@
 import Character from '../../components/Characters';
 import Exception from '../../components/Exception';
 import Loader from '../../components/Loader';
+import NotFound from '../../components/NotFound/NotFound';
 import Pagination from '../../components/Pagination';
 import Search from '../../components/Search';
 import { BackGroundColor, ExceptionCardLabels } from '../../domain/enums/exception.enum';
-import { CharacterListTitle, CharacterListContainer } from './CharacterList.style';
+import { CharacterComponetLabels } from '../../domain/enums/character.enum';
+import { CharacterListContainer, CharacterListTitle } from './CharacterList.style';
 import { getAllCharactersByPage } from '../../services/getcharacters.sevice';
 import { HttpStatus } from '../../domain/enums/httpRequest.enum';
-import { ReactElement, useEffect, useState } from 'react';
-import NotFound from '../../components/NotFound/NotFound';
-import { CharacterComponetLabels } from '../../domain/enums/character.enum';
 import { Link } from 'react-router-dom';
+import { ReactElement, useEffect, useState } from 'react';
 
-
-export function CharacterList(): ReactElement {
+export const CharacterList = (): ReactElement => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [characters, setCharacters] = useState<CharacterData[] | []>([]);

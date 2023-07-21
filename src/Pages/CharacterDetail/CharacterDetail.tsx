@@ -1,7 +1,7 @@
 import DetailToolbar from '../../DetailToolBar';
 import Exception from '../../components/Exception';
 import Loader from '../../components/Loader';
-import React, { useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { BackGroundColor, ExceptionCardLabels } from '../../domain/enums/exception.enum';
 import {
   CharacterCardContainer,
@@ -12,12 +12,13 @@ import {
   CharacterName
   } from './CharacterDetail.style';
 import { CharacterData } from '../../domain/interfaces/characters.interface';
-import { CharacterListContainer  } from '../CharacterList/CharacterList.style';
+import { CharacterDetailsLabels } from '../../domain/enums/characterDetails.enum';
+import { CharacterListContainer } from '../CharacterList/CharacterList.style';
 import { getAllCharacterById } from '../../services/getcharacters.sevice';
 import { HttpStatus } from '../../domain/enums/httpRequest.enum';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-export function CharacterDetail() {
+export const CharacterDetail = (): ReactElement => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -63,19 +64,19 @@ export function CharacterDetail() {
   return (
     <>
       <DetailToolbar />
-      <CharacterListContainer key={character?.id}>
+      <CharacterListContainer key={character?.id}  data-testid="character-detail-page">
         <CharacterCardContainer>
           <CharacterImage src={character?.image} alt={'test'} />
           <CharacterDetails>
             <CharacterName>{character?.name || '-'}</CharacterName>
             <CharacterDescription>
-              <CharacterDetailItem>Species</CharacterDetailItem> {character?.species || '-'}
+              <CharacterDetailItem>{CharacterDetailsLabels.Species}</CharacterDetailItem> {character?.species || '-'}
             </CharacterDescription>
             <CharacterDescription>
-              <CharacterDetailItem>Type:</CharacterDetailItem> {character?.type || '-'}
+              <CharacterDetailItem>{CharacterDetailsLabels.Type}:</CharacterDetailItem> {character?.type || '-'}
             </CharacterDescription>
             <CharacterDescription>
-              <CharacterDetailItem>Gender:</CharacterDetailItem> {character?.gender || '-'}
+              <CharacterDetailItem>{CharacterDetailsLabels.Gender}</CharacterDetailItem> {character?.gender || '-'}
             </CharacterDescription>
           </CharacterDetails>
         </CharacterCardContainer>

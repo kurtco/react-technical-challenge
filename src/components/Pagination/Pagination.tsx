@@ -1,5 +1,5 @@
-import { ReactElement } from "react";
-import { PaginationContainer, PaginationPrimarybtn } from "./Pagination.style";
+import { PaginationContainer, PaginationPrimarybtn } from './Pagination.style';
+import { ReactElement } from 'react';
 
 
 interface PaginationProps {
@@ -12,7 +12,7 @@ export function Pagination({
     page = 1,
 }: PaginationProps): ReactElement {
     return (
-        <PaginationContainer>
+        <PaginationContainer data-testid='pagination-component'>
             <PaginationPrimarybtn
                 onClick={() => setPage(page - 1)}
             >

@@ -12,7 +12,7 @@ export function Exception({
     backGroundColor =  'black'
 }: ExceptionProps): ReactElement {
     return (
-        <ExpeptionContainer color={backGroundColor}> 
+        <ExpeptionContainer color={backGroundColor} data-testid='exception-component'> 
             <div className="card-header">{ExceptionCardLabels.TITLE}</div>
             <div className="card-content">
                 <p>

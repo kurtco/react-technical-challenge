@@ -1,4 +1,4 @@
-import { SearchCardLabels } from '../../domain/enums/search.enum';
+import { ChangeEvent, ReactElement, useState } from 'react';
 import {
     FilterSelect,
     SearchBarContainer,
@@ -6,7 +6,7 @@ import {
     SearchInput,
     SearchToolbarContainer
     } from './Search.style';
-import { ChangeEvent, ReactElement, useState } from 'react';
+import { SearchCardLabels } from '../../domain/enums/search.enum';
 
 interface SearchProps {
     searchHandle: (search: string) => void;

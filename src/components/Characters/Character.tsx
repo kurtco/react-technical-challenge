@@ -1,5 +1,12 @@
+import {
+  MediaCard,
+  MediaCardContent,
+  MediaCardDescription,
+  MediaCardThumbnail,
+  MediaCardTitle,
+  ThumbailImage
+  } from './Character.style';
 import { ReactElement } from 'react';
-import { MediaCard, MediaCardContent, MediaCardDescription, MediaCardThumbnail, MediaCardTitle, ThumbailImage } from './Character.style';
 
 interface CharacterProps {
   id: number
