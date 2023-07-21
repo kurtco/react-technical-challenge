@@ -5,7 +5,7 @@ import {
     SearchButton,
     SearchInput,
     SearchToolbarContainer
-    } from './Search.style';
+} from './Search.style';
 import { SearchCardLabels } from '../../domain/enums/search.enum';
 
 interface SearchProps {
@@ -17,7 +17,7 @@ export function Search({
     searchHandle,
     orderByHandle
 }: SearchProps): ReactElement {
-
+    const [orderBy, setOrderBy] = useState('');
     const [searchValue, setSearchValue] = useState('');
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,11 +32,12 @@ export function Search({
     };
 
     const handleOrderChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        if(e?.target?.value !== ''){
+        if (e?.target?.value !== '') {
+            setOrderBy(e.target.value);
             orderByHandle(e?.target.value);;
         };
-      };
-    
+    };
+
 
     const handleButtonClick = () => {
         searchHandle(searchValue);
@@ -59,8 +60,8 @@ export function Search({
                     </svg>
                 </SearchButton>
             </SearchBarContainer>
-            <FilterSelect onChange={handleOrderChange}>
-                <option disabled selected value="">{SearchCardLabels.SELECTDEFAULTSELECTION}</option>
+            <FilterSelect onChange={handleOrderChange} value={orderBy}>
+                <option value="">{SearchCardLabels.SELECTDEFAULTSELECTION}</option>
                 <option value={SearchCardLabels.ORDERTITLEVALUE}>{SearchCardLabels.ORDERBYTITLE}</option>
                 <option value={SearchCardLabels.ORDERBYSPECIEVALUE}>{SearchCardLabels.ORDERBYSPECIE}</option>
             </FilterSelect>
